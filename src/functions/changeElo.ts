@@ -27,9 +27,8 @@ export async function changeElo(winnerUsername: string, loserUsername: string){
         const newWinnerElo = Math.round(winnerElo + difference * (1 - winnerProbability))
         const newLoserElo = Math.round( loserElo  + difference * (0 - loserProbability))
 
-        console.log("ELO", winnerElo, loserElo)
+        console.log("old ELO", winnerElo, loserElo)
         console.log("new ELO", newWinnerElo, newLoserElo)
-        console.log("dif", difference)
 
         // update users in powerlines Elo database with new values
         await PowerLines_UserScore.findOneAndUpdate({username: winnerUsername},  {elo: newWinnerElo});

@@ -4,8 +4,6 @@ export function timeLeft (id: string, index: string, gameInfos: any, io: any){
     // if index exist it means that player didnt make a move and lost bc of time
 
     if(gameInfos.players[id]?.timeOutIndex === index){
-        console.log("timeOUT", index)
-        console.log(gameInfos.players[id])
         endGame(id, gameInfos, io)
 
         //todo - send message to players that game was ended bc of time

@@ -114,6 +114,5 @@ export function cutPlayer(
 }
 
 function getIndex(square: any){
-    //console.log(square.x, square.y) all indexes seem to be ok
     return square.x*36 + square.y
 }

@@ -12,13 +12,10 @@ export async function handleSocketOn_pwf_matched(
 
     //if nobody waits to play matched game
     if(Object.keys(matchedLobby).length === 0){
-        console.log("Added player to matched lobby", socket.id)
         addToMatchedLobby()
     } else {
         // todo, ensure player doesnt only gets elo against one player
         if(!socket.username || !matchedLobby[Object.keys(matchedLobby)[0]].username) return
-
-        console.log("Connected with player in matched lobby", socket.id)
 
         const userUsername = socket.username
         const opponentUsername = matchedLobby[Object.keys(matchedLobby)[0]].username
@@ -33,10 +30,8 @@ export async function handleSocketOn_pwf_matched(
         console.log("Here")
 
         await PowerLines_UserScore.findOne({ username: socket.username }, async (err: Error, user: PowerLines_UserScoreInterface) => {
-            console.log("elo1")
             if (err) throw err
             if (!user) {
-                console.log("new ELO", userUsername)
                 const newUserElo = new PowerLines_UserScore({
                     username: userUsername,
                     elo: 1000
@@ -49,7 +44,6 @@ export async function handleSocketOn_pwf_matched(
             
         })
         await PowerLines_UserScore.findOne({ username: matchedLobby[Object.keys(matchedLobby)[0]].username }, async (err: Error, user: PowerLines_UserScoreInterface) => {
-            console.log("elo2")
             if (err) throw err
             if (!user) {
                 const newUserElo = new PowerLines_UserScore({

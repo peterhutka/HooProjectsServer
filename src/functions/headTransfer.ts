@@ -17,7 +17,7 @@ export function headTransfer (
     
     let oldLetter: "A"|"B"|null = gameInfos.rooms[roomId].grid[pos].player
     let newLetter: "A"|"B"|null = gameInfos.rooms[roomId].grid[pos + positionChange].player
-    //console.log(`newLetter: ${newLetter} oldLetter: ${oldLetter}`)
+  
 
     if(newLetter && newLetter !== oldLetter) {
         gameEnds = cutPlayer(gameInfos, pos + positionChange, roomId, gameInfos.players[id].opponent, io)

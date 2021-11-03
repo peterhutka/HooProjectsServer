@@ -46,7 +46,6 @@ export function handleSocketOn_move (
     // if new sqare is occupied by wall or head of other player return false
     if((newSqare.isHead) || (newSqare.type === "W")){
         //this should never run bc we are checking sqare availability on client side 
-        console.log("occupied", newSqare, "DATA", data)
         io.to(socket.id).emit("invalid", "occupied")
     } 
     else {
