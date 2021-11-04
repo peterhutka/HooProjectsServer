@@ -6,7 +6,6 @@ import passportLocal from 'passport-local';
 
 // registering, loggin in, login oug
 export async function registerUser(req: Request, res: Response){
-    console.log("/register")
     const { username, password } = req?.body
 
     if (!username || !password || typeof username !== "string" || typeof password !== "string") {

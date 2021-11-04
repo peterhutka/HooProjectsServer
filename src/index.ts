@@ -40,7 +40,6 @@ const matchedLobby = {
 }
 
 mongoose.connect(`${process.env.MONGO_DB}`, MONGOOSE_OPTIONS, mognooseCallback)
-console.log(process.env.FRONTEND_URL)
 
 //Middleware
 const app = express();

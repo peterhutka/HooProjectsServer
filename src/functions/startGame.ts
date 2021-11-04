@@ -9,8 +9,8 @@ export function startGame(io: any, grid: squareInterface[], idA: string, idB: st
     gameInfos.rooms[idA + idB].grid = grid
     gameInfos.players[idA].room = idA + idB
     gameInfos.players[idB].room = idA + idB    
-    gameInfos.players[idA].timeLeft = 10000
-    gameInfos.players[idB].timeLeft = 10000
+    gameInfos.players[idA].timeLeft = 30000
+    gameInfos.players[idB].timeLeft = 30000
     gameInfos.players[idA].opponent = idB
     gameInfos.players[idB].opponent = idA
     gameInfos.players[idA].movesTotal = 1
