@@ -1,3 +1,4 @@
+import { waitingQueueType } from "src/Interfaces/RoomInfoInterface"
 import { changeElo } from "./changeElo"
 import { deleteRoom, endGame } from "./endGame"
 
@@ -5,6 +6,9 @@ export function handleDisconnect(
     id: string,
     gameInfos: any,
     io: any,
+    waitingQueue: waitingQueueType,
+    pwfLobby: any,
+    matchedLobby: any,
 ){
     //todo - consider not ending game at disconnect, wait untill time runs out
     //todo - delete lobby entries if player is disconnected 
@@ -31,4 +35,11 @@ export function handleDisconnect(
         io.to(id).emit("endgame", "T")
     }
     deleteRoom(gameInfos, roomId, opponent, id)   
+
+
+
+    //if player is in any lobby, delte him during disconnect
+    if(waitingQueue[id]) delete waitingQueue[id]
+    if(pwfLobby[id]) delete pwfLobby[id]
+    if(matchedLobby[id]) delete matchedLobby[id]
 }

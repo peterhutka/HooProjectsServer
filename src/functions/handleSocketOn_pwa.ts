@@ -35,7 +35,7 @@ export function handleSocketOn_pwa(
 //player is waiting for another player to join game in queue
 function addToQueue(socket: any, io:any, waitingQueue: waitingQueueType){
     waitingQueue[socket.id] = socket.id
-    io.to(socket.id).emit('pwaResponse', "queued");
+    io.to(socket.id).emit('lobby');
 }
 
 

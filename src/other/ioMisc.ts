@@ -65,7 +65,7 @@ export function ioSetup(
     console.info('Client connected to the WebSocket');
     
         socket.on('disconnect', () => {
-            handleDisconnect(socket.id, gameInfos, io)
+            handleDisconnect(socket.id, gameInfos, io, waitingQueue, pwfLobby, matchedLobby)
             console.info('Client disconnected', socket.id);
         });
 

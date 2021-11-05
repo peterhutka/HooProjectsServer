@@ -27,7 +27,6 @@ dotenv.config();
 //todo - change from variables to database 
 const waitingQueue: waitingQueueType = {}
 const playersInGame: waitingQueueType = {}
-const rooms: Record<string, roomInfoInterface> = {}
 const gameInfos: any = {
     players: {}, 
     rooms: {}
