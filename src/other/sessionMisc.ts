@@ -11,5 +11,6 @@ export const SESSION_OPTIONS =
     resave: true,
     saveUninitialized: true,
     store: sessionStore,
-    name: "key1"
+    name: "key1",
+    sameSite: 'none'
 }
