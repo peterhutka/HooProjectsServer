@@ -67,6 +67,7 @@ export async function getAllUsersController(req: Request, res: Response){
 
 export function deserializeUserController(id: string, done: any) {
     User.findOne({ _id: id }, (err: Error, user: DatabaseUserInterface) => {
+        console.log("deserialize", user)
         const userInformation: UserInterface = {
             username: user.username,
             isAdmin: user.isAdmin,
