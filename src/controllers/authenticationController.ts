@@ -35,6 +35,7 @@ export async function registerUser(req: Request, res: Response){
 }
 
 export function loginController(req: Request, res: Response) {
+    console.log("loggin in")
     res.send("success")
 }
 export function getUserController(req: Request, res: Response){
