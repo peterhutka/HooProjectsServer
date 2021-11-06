@@ -27,7 +27,6 @@ export async function handleSocketOn_pwf_matched(
         initializeGame(socket, io, opponentId, gameInfos);   
 
         let elo1, elo2;
-        console.log("Here")
 
         await PowerLines_UserScore.findOne({ username: socket.username }, async (err: Error, user: PowerLines_UserScoreInterface) => {
             if (err) throw err

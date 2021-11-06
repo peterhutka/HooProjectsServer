@@ -35,16 +35,13 @@ export async function registerUser(req: Request, res: Response){
 }
 
 export function loginController(req: Request, res: Response) {
-    console.log("loggin in")
     res.send("success")
 }
 export function getUserController(req: Request, res: Response){
-    console.log("user", req.user)
     res.send(req.user)
 }
 export function logoutController(req: Request, res: Response) {
     req.logout()
-    res.send("logged out")
 }
 export async function getAllUsersController(req: Request, res: Response){
     await User.find({}, (err: Error, data: DatabaseUserInterface[]) => {
@@ -67,7 +64,6 @@ export async function getAllUsersController(req: Request, res: Response){
 
 export function deserializeUserController(id: string, done: any) {
     User.findOne({ _id: id }, (err: Error, user: DatabaseUserInterface) => {
-        console.log("deserialize", user)
         const userInformation: UserInterface = {
             username: user.username,
             isAdmin: user.isAdmin,
