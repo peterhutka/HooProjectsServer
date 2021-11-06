@@ -62,11 +62,16 @@ export function ioSetup(
     io.use(setSocketUsername)
 
     io.on('connection', function(socket: any) {
-    console.info('Client connected to the WebSocket');
+        console.info('Client connected to the WebSocket');
     
         socket.on('disconnect', () => {
             handleDisconnect(socket.id, gameInfos, io, waitingQueue, pwfLobby, matchedLobby)
             console.info('Client disconnected', socket.id);
+        });
+        socket.on('ping', (time: any) => {
+            const serverTime = Date.now();
+            console.log("First Ping: ", serverTime - time)
+            io.to(socket.id).emit("ping", time);
         });
 
         //Play with anyone - game initiation from client

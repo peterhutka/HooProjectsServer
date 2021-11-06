@@ -9,7 +9,7 @@ import passportLocal from 'passport-local';
 const cookieParser = require("cookie-parser")
 import session from 'express-session';
 import dotenv from 'dotenv';
-import {roomInfoInterface, waitingQueueType} from './Interfaces/RoomInfoInterface'
+import { waitingQueueType} from './Interfaces/RoomInfoInterface'
 import { deserializeUserController, isAdmin, localStrategyVerify, serializeUserController } from './controllers/authenticationController';
 import { mognooseCallback, MONGOOSE_OPTIONS, MONGOSTORE_OPTIONS } from './other/mongoMisc';
 import { ioSetup, IO_OPTIONS } from './other/ioMisc';
