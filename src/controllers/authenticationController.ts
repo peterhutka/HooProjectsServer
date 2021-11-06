@@ -38,6 +38,7 @@ export function loginController(req: Request, res: Response) {
     res.send("success")
 }
 export function getUserController(req: Request, res: Response){
+    console.log("user", req.user)
     res.send(req.user)
 }
 export function logoutController(req: Request, res: Response) {
