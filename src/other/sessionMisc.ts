@@ -12,5 +12,6 @@ export const SESSION_OPTIONS =
     saveUninitialized: true,
     store: sessionStore,
     name: "key1",
-    sameSite: 'none'
+    /*sameSite: 'none',
+    secure: true*/
 }

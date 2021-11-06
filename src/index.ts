@@ -47,6 +47,7 @@ const io = require('socket.io')(http, IO_OPTIONS);
 
 app.use(express.json());
 app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }))
+app.enable('trust proxy')
 app.use(session(SESSION_OPTIONS));
 app.use(cookieParser());
 app.use(passport.initialize());
